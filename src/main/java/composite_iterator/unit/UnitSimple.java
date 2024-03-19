@@ -3,9 +3,7 @@ package composite_iterator.unit;
 import core.BehaviorSoldier;
 import composite_iterator.equipment.Equipment;
 
-import java.util.ArrayList;
-import java.util.Iterator;
-import java.util.List;
+import java.util.*;
 
 public abstract class UnitSimple implements Unit {
     private BehaviorSoldier soldier;
@@ -43,7 +41,11 @@ public abstract class UnitSimple implements Unit {
     public void removeUnit(Unit unit) { throw new UnsupportedOperationException(); }
 
     @Override
-    public Iterator<Unit> getUnits() { throw new UnsupportedOperationException(); }
+    public Iterator<Unit> getUnits() {
+        ListIterator<Unit> result = Collections.emptyListIterator();
+        result.add(this);
+        return result;
+    }
 
     @Override
     public boolean addEquipment(Equipment equipment) {

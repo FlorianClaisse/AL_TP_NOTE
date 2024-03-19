@@ -13,7 +13,7 @@ public final class StdExtension extends BehaviorExtension {
 
 	@Override
 	public float strike() {
-		float force = getParent().strike() + m_attack_bonus;
+		float force = getParent().strike() + get_attack_bonus();
 		m_wear -= wear_ratio * Math.min(m_wear, force) / m_wear;
 		return force;
 	}
@@ -21,8 +21,8 @@ public final class StdExtension extends BehaviorExtension {
 	@Override
 	public float parry(float force) {
 		float taken_force;
-		if(m_defense_bonus >= 0)
-			taken_force = force / (1 + m_defense_bonus);
+		if(get_defense_bonus() >= 0)
+			taken_force = force / (1 + get_defense_bonus());
 		else
 			taken_force = force;
 

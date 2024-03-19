@@ -3,8 +3,8 @@ package core.extension;
 import core.BehaviorSoldier;
 
 public abstract class BehaviorExtension implements BehaviorSoldier {
-	final float m_attack_bonus;
-	final float m_defense_bonus;
+	private final float m_attack_bonus;
+	private final float m_defense_bonus;
 	private BehaviorSoldier soldier;
 
 	BehaviorExtension(BehaviorSoldier s, float attack, float defense) {
@@ -34,4 +34,8 @@ public abstract class BehaviorExtension implements BehaviorSoldier {
 
 	@Override
 	public float strike() { return this.soldier.strike(); }
+
+	public float get_attack_bonus() { return this.m_attack_bonus; }
+
+	public float get_defense_bonus() { return this.m_defense_bonus; }
 }
